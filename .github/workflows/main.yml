@@ -28,6 +28,9 @@ jobs:
       - name: Building 
         run: |
           yarn build
+      - name: Create env file
+        run: | 
+          cd build && touch .env 
           
       - name: Push to the build branch 
         uses: s0/git-publish-subdir-action@develop
