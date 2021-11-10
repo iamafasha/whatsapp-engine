@@ -25,7 +25,9 @@ jobs:
       - name: Install all dependencies
         run: |
           yarn install
-          yarn run build
+      - name: Building 
+        run: |
+          yarn build
           
       - name: Push to the build branch 
         uses: s0/git-publish-subdir-action@develop
