@@ -1,5 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home2/linearcb/whastapp.iamafasha.com/
-    - /bin/cp -R * $DEPLOYPATH
