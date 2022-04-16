@@ -1,0 +1,16 @@
+@layout('layouts/main')
+@set('title', 'Login')
+
+@section('styles')
+@entryPointStyles('auth')
+@end
+
+@section('body')
+  <section class="auth-container">
+    <form  action="{{ route('AuthController.login') }}" method="POST">
+      <input required type="text" name="username" placeholder="username">
+      <input required type="password" name="password" placeholder="password">
+      <button type="submit">Login</button>
+    </form>
+  </section>
+@end

@@ -1,35 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AdonisJS - A fully featured web framework for Node.js</title>
+@layout('layouts/main')
+@set('title', 'Home')
+@section('styles')
   @entryPointStyles('app')
-  @entryPointScripts('app')
-</head>
-<body>
-
-  <main>
-    <div>
-      <h1 class="title"> It Works! </h1>
-      <p class="subtitle">
-        Congratulations, you have just created your first AdonisJS app.
-      </p>
-
-      <ul>
-        <li>
-          The route for this page is defined inside <code>start/routes.ts</code> file
-        </li>
-
-        <li>
-          You can update this page by editing <code>resources/views/welcome.edge</code> file
-        </li>
-
-        <li>
-          If you run into problems, you can reach us on <a href="https://discord.gg/vDcEjq6?">Discord</a> or the <a href="https://forum.adonisjs.com/">Forum</a>.
-        </li>
-      </ul>
+@end
+@section('body')
+  <section class="auth-container">
+    <div style="display:flex;justify-content: center;align-items:center;height: 100vh;">
+      <div  id="w_qrcode"></div>
     </div>
-  </main>
-</body>
-</html>
+  </section>
+@end
+
+@section('scripts')
+<script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="/qrcode.min.js" ></script>
+<script>
+  const socket = io()
+  socket.on('qr', (data) => {
+    $('#w_qrcode').empty()
+    console.log(data);
+    var qrcode = new QRCode({
+      content: data,
+      padding: 4,
+      width: 256,
+      height: 256,
+      color: "#000000",
+      background: "#ffffff",
+      ecl: "M",
+    });
+
+    var svg = qrcode.svg();
+    document.getElementById("w_qrcode").innerHTML = svg;
+
+    socket.emit('my other event', { my: 'data' })
+  })
+
+</script>
+@end
