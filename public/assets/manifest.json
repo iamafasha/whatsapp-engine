@@ -2,5 +2,6 @@
   "assets/app.css": "http://localhost:8080/assets/app.css",
   "assets/app.js": "http://localhost:8080/assets/app.js",
   "assets/auth.css": "http://localhost:8080/assets/auth.css",
-  "assets/auth.js": "http://localhost:8080/assets/auth.js"
+  "assets/auth.js": "http://localhost:8080/assets/auth.js",
+  "assets/alpine.js": "http://localhost:8080/assets/alpine.js"
 }

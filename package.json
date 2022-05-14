@@ -29,6 +29,7 @@
     "@adonisjs/shield": "^7.0.0",
     "@adonisjs/view": "^6.0.0",
     "@types/socket.io": "^3.0.2",
+    "alpinejs": "^3.10.2",
     "luxon": "^2.1.1",
     "mysql": "^2.18.1",
     "pg": "^8.7.1",
