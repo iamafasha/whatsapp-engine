@@ -1,0 +1,40 @@
+@layout('layouts/main')
+@set('title', 'Devices')
+
+@section('body')
+  <section class="auth-container p-2">
+    <div class="mt-5">
+      <h1 class=" text-xl font-bold">Your Linked Devices</h1>
+      <ul class="">
+        <li class="pb-2">
+          <div class="flex p-4 bg-gray-200 border-gray-200 shadow  justify-between items-center rounded-sm">
+            <span class="bg-green-400 border-2 border-green-500 bottom-2 rounded-md p-2 mr-2">running</span>
+            <span class=" ml-5 flex-grow font-bold w-80">Session ID: #23 (256702131430)</span>
+            <button class= "bg-red-400 p-2 rounded-sm shadow px-5">stop</button>
+          </div>
+        </li>
+
+
+        <li class="pb-2">
+          <div class="flex p-4 bg-gray-200 border-gray-200 shadow justify-between items-center rounded-sm">
+            <span class="bg-red-400 border-2 border-red-500 bottom-2 rounded-md p-2 mr-2">stopped</span>
+            <span class=" ml-5 flex-grow font-bold w-80">Session ID: #28 (256783062777)</span>
+            <button class= "bg-blue-400 p-2 rounded-sm shadow px-5">start</button>
+          </div>
+        </li>
+
+
+
+      </ul>
+
+      <ul class="actions mt-4">
+        <li class="pb-2">
+          <a href="{{ route('devices.add')}}" class="bg-blue-500 hover:cursor-pointer text-gray-200 hover:bg-blue-700  py-2 px-4 rounded-sm" x-on:click="add_device_modal = ! add_device_modal" >
+            <span class="mr-2">Add Device</span>
+            <i class="fas fa-plus"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+@end

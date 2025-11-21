@@ -20,9 +20,12 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async ({ view }) => {
-  return view.render('welcome')
-}).as('home').middleware('auth')
+//grrouped middleware
+Route.group(() => {
+  Route.get('/', 'DevicesController.index').as('home').middleware('auth')
+  Route.get('/devices', 'DevicesController.index').as('devices.index').middleware('auth')
+  Route.get('/devices/create', 'DevicesController.create').as('devices.add').middleware('auth')
+}).middleware(['auth'])
 
 Route.get('/login', 'AuthController.login')
 Route.post('/login', 'AuthController.login')

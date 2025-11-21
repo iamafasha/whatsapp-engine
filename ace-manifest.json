@@ -1,13 +1,25 @@
 {
   "commands": {
-    "migration:fresh": {
+    "connect:to_client": {
+      "settings": {
+        "loadApp": false,
+        "stayAlive": false
+      },
+      "commandPath": "./commands/ConnectToClient",
+      "commandName": "connect:to_client",
+      "description": "",
+      "args": [],
+      "aliases": [],
+      "flags": []
+    },
+    "migrate:fresh": {
       "settings": {
         "loadApp": false,
         "stayAlive": false
       },
       "commandPath": "./commands/MigrationFresh",
-      "commandName": "migration:fresh",
-      "description": "",
+      "commandName": "migrate:fresh",
+      "description": "Migrate all tables",
       "args": [],
       "aliases": [],
       "flags": []

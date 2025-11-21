@@ -1,0 +1,43 @@
+@layout('layouts/main')
+@set('title', 'Add New Device')
+@section('styles')
+
+@end
+@section('body')
+<section class="auth-container p-2 min-h-fullscreen">
+  <div class="add-device flex flex-col items-center mt-5 justify-end min-h-3/4" >
+      <small>Please scan your whatsapp here </small>
+      <div class="bg-white rounded-sm shadow w-fit mt-3">
+        <div class="flex justify-center items-center">
+          <div class="w-fit">
+            <div id="w_qrcode"></div>
+          </div>
+        </div>
+      </div>
+      <a href="{{referer}}" class="btn btn-outline-primary mt-5">Cancel</a>
+
+    </div>
+  </div>
+</section>
+@end
+
+@section('scripts')
+<script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+<script src="/qrcode.min.js" ></script>
+<script>
+
+  var qrcode = new QRCode({
+      content: "Hello mdfkl df,mdfkldf dfkldf dff dfkdf fdkldf fdklfd dfkldf fd,mdfkmdfdf,kmdfdf dfkldfdf dfklfd ,md,mdf dkmdf klfd,mdf ",
+      padding: 4,
+      width: 256,
+      height: 256,
+      color: "#000000",
+      background: "#ffffff",
+      ecl: "M",
+    });
+
+    var svg = qrcode.svg();
+    document.getElementById("w_qrcode").innerHTML = svg;
+
+</script>
+@end

@@ -1,16 +1,15 @@
 import { BaseCommand } from '@adonisjs/core/build/standalone'
-import execa from 'execa'
 
-export default class MigrationFresh extends BaseCommand {
+export default class ConnectToClient extends BaseCommand {
   /**
    * Command name is used to run the command
    */
-  public static commandName = 'migrate:fresh'
+  public static commandName = 'connect:to_client'
 
   /**
    * Command description is displayed in the "help" output
    */
-  public static description = 'Migrate all tables'
+  public static description = ''
 
   public static settings = {
     /**
@@ -27,9 +26,6 @@ export default class MigrationFresh extends BaseCommand {
   }
 
   public async run() {
-    await execa.node('ace',['migration:rollback'])
-    console.log('Rollback all tables')
-    await execa.node('ace',['migration:run'])
-    console.log('Migrated all tables')
+    this.logger.info('Hello world!')
   }
 }
